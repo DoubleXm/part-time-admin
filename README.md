@@ -1,24 +1,18 @@
-# part-time-admin
+1, element 按需引入官网下载的插件会报错, 可以下载 `npm install babel-preset-env@next -D` 并且修改 `babel.config.js` 文件内容
 
-## Project setup
 ```
-npm install
-```
+{
+  presets: ["@vue/cli-plugin-babel/preset", ["env", { "modules": false }]],
+  plugins: [
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
+};
+``` 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+2, 
