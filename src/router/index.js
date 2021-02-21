@@ -1,24 +1,84 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Layout from "@/layout";
 
 Vue.use(VueRouter);
 
-const routes = [
+export const routes = [
+  {
+    path: "/login",
+    component: () => import("@/views/login/Login.vue"),
+    hide: true
+  },
+  {
+    path: "/register",
+    component: () => import("@/views/login/Register.vue"),
+    hide: true
+  },
   {
     path: "/",
-    name: "Home",
-    component: Home
+    component: Layout,
+    meta: { title: "dashboard" },
+    redirect: "/dashboard",
+    children: [
+      {
+        path: "dashboard",
+        component: () => import("@/views/dashboard/index.vue"),
+        meta: { title: "dashboard" }
+      }
+    ]
   },
-  // {
-  //   path: "/about",
-  //   name: "About",
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () =>
-  //     import(/* webpackChunkName: "about" */ "../views/About.vue")
-  // }
+  {
+    path: "/error",
+    component: Layout,
+    meta: { title: "错误页面" },
+    redirect: "/error/401",
+    children: [
+      {
+        path: "/401",
+        component: () => import("@/views/error-page/401.vue"),
+        meta: { title: "401" }
+      },
+      {
+        path: "/404",
+        component: () => import("@/views/error-page/404.vue"),
+        meta: { title: "404" }
+      }
+    ]
+  },
+  {
+    path: "/part-time",
+    component: Layout,
+    meta: { title: "app管理" },
+    redirect: "/part-time/user",
+    children: [
+      {
+        path: "/user",
+        component: () => import("@/views/part-time/User/index.vue"),
+        meta: { title: "用户管理" }
+      },
+      {
+        path: "/task",
+        component: () => import("@/views/part-time/Task/index.vue"),
+        meta: { title: "任务管理" }
+      },
+      {
+        path: "/practice",
+        component: () => import("@/views/part-time/Practice/index.vue"),
+        meta: { title: "实习/兼职管理" }
+      },
+      {
+        path: "/course",
+        component: () => import("@/views/part-time/Course/index.vue"),
+        meta: { title: "宝典管理" }
+      }
+    ]
+  },
+  {
+    path: "*",
+    hide: true,
+    component: () => import("@/views/error-page/404.vue")
+  }
 ];
 
 const router = new VueRouter({
