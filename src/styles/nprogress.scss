@@ -1,0 +1,11 @@
+@import './element-variables.scss';
+
+#nprogress .bar {
+  background: $--color-primary;
+}
+#nprogress .peg { 
+  box-shadow: 0 0 10px $--color-primary, 0 0 5px $--color-primary;
+}
+#nprogress .spinner-icon {
+  display: none;
+}

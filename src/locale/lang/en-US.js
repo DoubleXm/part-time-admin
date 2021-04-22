@@ -1,3 +1,4 @@
 export default {
-  button: "button"
+  button: "button",
+  language: "language"
 };

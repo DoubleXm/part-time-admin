@@ -26,5 +26,10 @@ export default {
   }
 };
 </script>
-
-<style></style>
+<style lang="scss" scoped>
+i {
+  padding-right: 10px;
+  font-size: 14px;
+  color: #fff;
+}
+</style>

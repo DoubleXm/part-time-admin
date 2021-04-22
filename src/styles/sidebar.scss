@@ -1,0 +1,79 @@
+@import './element-variables.scss';
+
+.el-aside .hideSidebar {
+  overflow: hidden;
+}
+
+.sidebar {
+  height: 100vh;
+  // scrollbar
+  .el-scrollbar {
+    height: 100%;
+    &.has-logo {
+      height: calc(100% - 50px) !important;
+    }
+    .el-scrollbar__wrap {
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+      .el-scrollbar__view {
+        height: 100%;
+      }
+    }
+  }
+  .el-menu {
+    border: none;
+    height: 100%;
+    .el-submenu  {
+      width: 200px !important;
+    }
+  }
+  // menu
+  .el-menu--collapse {
+    width: 54px;
+    .el-submenu {
+      width: 100% !important;
+      & > .el-submenu__title {
+        & > span {
+          height: 0;
+          width: 0;
+          overflow: hidden;
+          visibility: hidden;
+          display: inline-block;
+        }
+        .el-submenu__icon-arrow {
+          display: none;
+        }
+      }
+    }
+  }
+  .el-menu-item,
+  .el-submenu__title {
+    &:hover {
+      color: #fff !important;
+    }
+  }
+
+  .el-submenu .el-menu-item {
+    background-color: $subMenuBg !important;
+    // &:hover {
+    //   background-color: $subMenuBg !important;
+    // }
+  }
+  .el-menu-item.is-active {
+    background-color: $--color-primary !important;
+    color: #fff !important;
+  }
+
+  // logo 
+  .side-logo {
+    height: 50px;
+    width: 100%;
+    img {
+      height: 100%;
+    }
+  }
+}
+
+// .el-menu--vertical {
+//   left: 56px !important;
+// }

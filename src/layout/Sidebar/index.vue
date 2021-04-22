@@ -1,19 +1,22 @@
 <template>
-  <div>
-    <el-scrollbar class="scrollbar-wrapper">
+  <div class="sidebar">
+    <Logo :is-collapse="isCollapse" v-if="hasLogo"></Logo>
+    <el-scrollbar :class="['scrollbar-wrapper', hasLogo ? 'has-logo' : '']">
       <el-menu
-        default-active="2"
-        :collapse="false"
-        background-color="#fff"
-        text-color="#333"
-        active-text-color="#000"
-        :unique-opened="true"
+        mode="vertical"
+        :default-active="$route.path"
+        :collapse="isCollapse"
+        :background-color="variables.menuBg"
+        :text-color="variables.menuColor"
+        :active-text-color="variables.activeMenuColor"
+        :unique-opened="false"
         :collapse-transition="false"
       >
         <sildebar-item
-          v-for="route in menuList"
+          v-for="route in routes"
           :key="route.path"
           :item="route"
+          :base-path="route.path"
         ></sildebar-item>
       </el-menu>
     </el-scrollbar>
@@ -21,23 +24,28 @@
 </template>
 
 <script>
+import Logo from "./Logo";
 import SildebarItem from "./SildebarItem";
 import { routes } from "@/router";
+import { mapGetters } from "vuex";
+import variables from "@/styles/variables.scss";
 
 export default {
   components: {
-    SildebarItem
+    SildebarItem,
+    Logo
   },
-  data() {
-    return {
-      menuList: routes
-    };
-  },
-  methods: {}
+  computed: {
+    ...mapGetters(["sidebar", "hasLogo"]),
+    isCollapse() {
+      return !this.sidebar.opened;
+    },
+    variables() {
+      return variables;
+    },
+    routes() {
+      return routes;
+    }
+  }
 };
 </script>
-<style lang="scss" scoped>
-.scrollbar-wrapper {
-  overflow-x: hidden !important;
-}
-</style>

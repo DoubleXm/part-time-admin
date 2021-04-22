@@ -1,0 +1,8 @@
+$--color-primary: #3872f2;
+$--color-success: #13ce66;
+$--color-warning: #ffba00;
+$--color-danger: #ff4949;
+
+:export {
+  theme: $--color-primary;
+}

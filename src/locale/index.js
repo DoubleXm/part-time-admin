@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueI18n from "vue-i18n";
-import { localRead } from "../libs/util";
+import storage from "store";
 import customZhCn from "./lang/zh-CN";
 import customUsEn from "./lang/en-US";
 
@@ -13,14 +13,14 @@ Vue.use(VueI18n);
 // 自动根据系统浏览器语言设置语言
 const navLang = navigator.language;
 const localLang = navLang === "zh-CN" || navLang === "en-US" ? navLang : false;
-let lang = localLang || localRead("local") || "zh-CN";
+let lang = localLang || storage.get("local") || "zh-CN";
 
 Vue.config.lang = lang;
 
 // Vue.locale = () => { };
 const messages = {
-  "zh-CN": Object.assign(enLocale, customZhCn),
-  "en-US": Object.assign(zhLocale, customUsEn)
+  "zh-CN": Object.assign(zhLocale, customZhCn),
+  "en-US": Object.assign(enLocale, customUsEn)
 };
 const i18n = new VueI18n({
   locale: lang,
