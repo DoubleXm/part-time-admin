@@ -48,22 +48,34 @@ export const routes = [
     meta: { title: "app管理", icon: "icon-app" },
     children: [
       {
-        path: "/user",
+        path: "user",
         component: () => import("@/views/part-time/User/index.vue"),
         meta: { title: "用户管理", icon: "icon-yonghuguanli" }
       },
       {
-        path: "/task",
+        path: "task",
         component: () => import("@/views/part-time/Task/index.vue"),
-        meta: { title: "任务管理", icon: "icon-renwuguanli" }
+        meta: { title: "任务管理", icon: "icon-renwuguanli" },
+        children: [
+          {
+            path: "doorTask",
+            component: () => import("@/views/part-time/Task/doorTask/index.vue"),
+            meta: { title: "门任务", icon: "icon-renwuguanli" }
+          },
+          {
+            path: "doorTaskRecord",
+            component: () => import("@/views/part-time/Task/doorTaskRecord/index.vue"),
+            meta: { title: "门任务记录", icon: "icon-renwuguanli" }
+          }
+        ]
       },
       {
-        path: "/practice",
+        path: "practice",
         component: () => import("@/views/part-time/Practice/index.vue"),
         meta: { title: "实习/兼职管理", icon: "icon-jianzhiguanli" }
       },
       {
-        path: "/course",
+        path: "course",
         component: () => import("@/views/part-time/Course/index.vue"),
         meta: { title: "宝典管理", icon: "icon-shujiguanli" }
       }

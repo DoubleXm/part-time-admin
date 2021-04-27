@@ -12,7 +12,7 @@ const exceptionCode = [
 ];
 
 const serives = axios.create({
-  // baseURL: "http://192.168.107.36:8089/",
+  baseURL: process.env.NODE_ENV === "production" ? "" : "http://192.168.50.89:8080",
   timeout: 10000
 });
 
@@ -20,7 +20,7 @@ serives.interceptors.request.use(
   config => {
     const token = storage.get("token");
     if (token) {
-      config.headers["Authorization"] = token;
+      config.headers["Authorization"] = "Bearer " + token;
     }
     return config;
   },

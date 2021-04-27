@@ -28,12 +28,16 @@ import {
   Table,
   TableColumn,
   Pagination,
-  Loading
+  Loading,
+  DatePicker,
+  Select,
+  Option,
+  Upload
 } from "element-ui";
 // 自定义主题样式
 import "@/styles/element-variables.scss";
 
-Vue.prototype.$ELEMENT = { size: "small", zIndex: 3000 };
+Vue.prototype.$ELEMENT = { size: "mini", zIndex: 3000 };
 Vue.use(Button);
 Vue.use(Container);
 Vue.use(Aside);
@@ -62,5 +66,10 @@ Vue.use(Dialog);
 Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(Pagination);
+Vue.use(DatePicker);
+Vue.use(Select);
+Vue.use(Option);
+Vue.use(DatePicker);
+Vue.use(Upload);
 Vue.use(Loading.directive);
 Vue.prototype.$loading = Loading.service;

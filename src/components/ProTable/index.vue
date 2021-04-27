@@ -1,5 +1,6 @@
 <template>
   <div class="pro-table">
+    <slot name="header"></slot>
     <div class="table-main">
       <el-table
         v-loading="loading"
@@ -21,7 +22,7 @@
         @selection-change="selectionChange"
         @sort-change="sortChange"
         style="width: 100%; heihgt: 500px;"
-        height="calc(100vh - 52px - 60px - 20px)"
+        height="calc(100vh - 52px - 60px - 20px - 47px)"
         :lazy="tableData.lazy"
         :load="treeLoad"
         :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
@@ -132,6 +133,7 @@
 //   ],
 // }
 import { Message } from "element-ui";
+import { cloneDeep } from "lodash";
 import Pagination from "./Pagination";
 
 export default {
@@ -178,7 +180,7 @@ export default {
     sourceData: {
       handler(data) {
         // 合并表格数据
-        this.tableData = Object.assign(this.tableData, data);
+        this.tableData = cloneDeep(data);
       },
       deep: true
     }
