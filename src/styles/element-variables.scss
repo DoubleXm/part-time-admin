@@ -1,4 +1,6 @@
-$--color-primary: #3872f2;
+@import "./variables.scss";
+
+$--color-primary: $themeColor;
 $--color-success: #13ce66;
 $--color-warning: #ffba00;
 $--color-danger: #ff4949;

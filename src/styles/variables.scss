@@ -1,20 +1,22 @@
-// font 
+// font
 $baseFont: 14px;
 
 // color
 $baseColor: #515a6e;
-$titleColor: #3E3F42;
-$borderColor: #EAEDF3;
+$titleColor: #3e3f42;
+$borderColor: #eaedf3;
+$themeColor: #3872f2;
 
 // sidebar
-$menuColor: #B4C0CF;
-$activeMenuColor: #B4C0CF;
-$menuBg: #19233E;
-$activeMenuBg: #212E5A;
+$menuColor: #b4c0cf;
+$activeMenuColor: #b4c0cf;
+$menuBg: #19233e;
+$activeMenuBg: #212e5a;
 $subMenuBg: #001424;
 
 :export {
   menuColor: $menuColor;
   activeMenuColor: $activeMenuColor;
   menuBg: $menuBg;
+  themeColor: $themeColor;
 }

@@ -14,7 +14,7 @@
           </keep-alive>
         </transition>
       </el-main>
-      <setting />
+      <!-- <setting /> -->
     </el-container>
   </el-container>
 </template>
@@ -22,7 +22,7 @@
 <script>
 import SideBar from "./Sidebar";
 import NavBar from "./NavBar";
-import Setting from "./Setting";
+// import Setting from "./Setting";
 import { mapGetters } from "vuex";
 
 export default {
@@ -30,7 +30,7 @@ export default {
   components: {
     SideBar,
     NavBar,
-    Setting
+    // Setting
   },
   computed: {
     ...mapGetters(["sidebar"]),
