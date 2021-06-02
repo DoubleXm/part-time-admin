@@ -32,7 +32,8 @@ import {
   DatePicker,
   Select,
   Option,
-  Upload
+  Upload,
+  Message
 } from "element-ui";
 // 自定义主题样式
 import "@/styles/element-variables.scss";
@@ -73,3 +74,4 @@ Vue.use(DatePicker);
 Vue.use(Upload);
 Vue.use(Loading.directive);
 Vue.prototype.$loading = Loading.service;
+Vue.prototype.$message = Message;

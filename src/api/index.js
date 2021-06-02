@@ -110,3 +110,19 @@ export function delDoorRecord(params) {
     params
   });
 }
+
+// 兼职实习
+export function getPrictice(params) {
+  return request({
+    url: "api/prictice",
+    method: "GET",
+    params
+  });
+}
+// 分类列表
+export function getCategoryList() {
+  return request({
+    url: "api/prictice/classify",
+    method: "GET"
+  });
+}

@@ -3,6 +3,7 @@
     <slot name="header"></slot>
     <div class="table-main">
       <el-table
+        size="mini"
         v-loading="loading"
         ref="tableRef"
         :data="tableData.tableData"

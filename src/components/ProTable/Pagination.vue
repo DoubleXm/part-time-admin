@@ -1,5 +1,6 @@
 <template>
   <el-pagination
+    size="mini"
     @size-change="handleSizeChange"
     @current-change="handleCurrentChange"
     :current-page="1"

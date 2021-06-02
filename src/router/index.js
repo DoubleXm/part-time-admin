@@ -13,35 +13,36 @@ export const routes = [
   {
     path: "/",
     component: Layout,
-    redirect: "/dashboard",
-    children: [
-      {
-        path: "dashboard",
-        name: "Dashboard",
-        component: () => import("@/views/dashboard/index.vue"),
-        meta: { title: "Dashboard", icon: "icon-dashboard" }
-      }
-    ]
+    redirect: "/part-time/user",
+    hide: true
+    // children: [
+    //   {
+    //     path: "dashboard",
+    //     name: "Dashboard",
+    //     component: () => import("@/views/dashboard/index.vue"),
+    //     meta: { title: "Dashboard", icon: "icon-dashboard" }
+    //   }
+    // ]
   },
-  {
-    path: "/error",
-    component: Layout,
-    meta: { title: "错误页面", icon: "icon-yichang" },
-    children: [
-      {
-        path: "/401",
-        name: "401",
-        component: () => import("@/views/error-page/401.vue"),
-        meta: { title: "401", icon: "icon-icon-test" }
-      },
-      {
-        path: "/404",
-        name: "404",
-        component: () => import("@/views/error-page/404.vue"),
-        meta: { title: "404", icon: "icon-icon-test1" }
-      }
-    ]
-  },
+  // {
+  //   path: "/error",
+  //   component: Layout,
+  //   meta: { title: "错误页面", icon: "icon-yichang" },
+  //   children: [
+  //     {
+  //       path: "/401",
+  //       name: "401",
+  //       component: () => import("@/views/error-page/401.vue"),
+  //       meta: { title: "401", icon: "icon-icon-test" }
+  //     },
+  //     {
+  //       path: "/404",
+  //       name: "404",
+  //       component: () => import("@/views/error-page/404.vue"),
+  //       meta: { title: "404", icon: "icon-icon-test1" }
+  //     }
+  //   ]
+  // },
   {
     path: "/part-time",
     component: Layout,

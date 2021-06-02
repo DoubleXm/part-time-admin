@@ -1,12 +1,22 @@
 <template>
   <div class="course-page" style="width: 100%;">
+    <el-form>
+      <el-form-item>
+        <el-button type="primary" @click="add">新建</el-button>
+      </el-form-item>
+    </el-form>
     <pro-table
       ref="tableRef"
       :source-data="sourceData"
       @size-change="sizeChange"
       @page-change="pageChange"
       @sort-change="sortChange"
-    ></pro-table>
+    >
+      <template v-slot:handler="{ row }">
+        <el-button type="text" size="mini" @click="edit(row)">修改</el-button>
+        <el-button type="text" size="mini" @click="del(row)" style="color: #f56c6c;">删除</el-button>
+      </template>
+    </pro-table>
   </div>
 </template>
 
@@ -23,6 +33,7 @@ export default {
       sourceData: {
         type: "selection",
         page: true,
+        border: true,
         columns: [
           { label: "ID", prop: "id", sort: "custom", minWidth: "120" },
           { label: "标题", prop: "title", minWidth: "120" },
@@ -33,6 +44,11 @@ export default {
             prop: "created_at",
             formatter: () => new Date().getTime(),
             minWidth: "120"
+          },
+          {
+            label: "操作",
+            slot: "handler",
+            minWidth: "100"
           }
         ],
         tableData: []
@@ -41,15 +57,26 @@ export default {
     };
   },
   mounted() {
-    this.getCourse();
+    this.get();
   },
   methods: {
-    async getCourse() {
+    async get() {
       this.$refs.tableRef.setLoading(true);
       const { data } = await getCourse(this.req);
       this.sourceData.tableData = data.rows || [];
       this.$refs.tableRef.updateTotal(data.total || 0);
       this.$refs.tableRef.setLoading(false);
+    },
+    edit(row) {
+      console.log(row);
+      this.$message.error("该功能尚未实现 请访问可以访问此接口 PUT /course/admin/");
+    },
+    del(row) {
+      console.log(row);
+      this.$message.error("该功能尚未实现 请访问可以访问此接口 DELETE /course/admin/");
+    },
+    add() {
+      this.$message.error("该功能尚未实现 请访问可以访问此接口 POST /course/admin/");
     },
     pageChange(page) {
       this.req.offset = page;

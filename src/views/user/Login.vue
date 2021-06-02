@@ -57,7 +57,7 @@ export default {
     return {
       form: {
         phone_number: "18516321273",
-        password: "123456"
+        password: "123465"
       },
       loading: false
     };
