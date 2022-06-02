@@ -11,8 +11,10 @@ const exceptionCode = [
   { code: 412, message: "用户不存在" }
 ];
 
+
 const serives = axios.create({
-  baseURL: process.env.NODE_ENV === "production" ? "" : "http://192.168.50.89:8080",
+  // baseURL: process.env.NODE_ENV === "production" ? "http://192.168.50.89:8080" : "",
+  baseURL: process.env.VUE_APP_BASE_URL,
   timeout: 10000
 });
 
